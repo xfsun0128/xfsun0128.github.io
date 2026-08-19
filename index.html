@@ -53,12 +53,6 @@
   .contact-links a { margin-right: 14px; white-space: nowrap; }
   .bio p { margin-bottom: 10px; font-size: 0.95rem; text-align: justify; }
   .bio .interests { font-style: italic; }
-  .btn-cv {
-    display: inline-block; margin-top: 6px; padding: 7px 18px;
-    border: 1px solid var(--link); border-radius: 4px;
-    font-size: 0.9rem; font-weight: 600; color: var(--link);
-  }
-  .btn-cv:hover { background: var(--link); color: #fff; }
 
   /* ---------- sections ---------- */
   section { margin-top: 34px; }
@@ -92,6 +86,21 @@
   .pub-body .pvenue { color: var(--muted); font-size: 0.86rem; font-style: italic; }
   .pub-body .pmeta { color: var(--muted); font-size: 0.86rem; margin-top: 2px; }
   .pub-body .citations { color: #c0392b; font-weight: 700; }
+  .inventor-tag {
+    display: inline-block; border: 1px solid #c0392b; color: #c0392b;
+    border-radius: 10px; padding: 0 8px; font-size: 0.72rem; font-weight: 700;
+    margin-left: 4px; vertical-align: 2px;
+  }
+  .granted-tag {
+    display: inline-block; border: 1px solid #1e8449; color: #1e8449;
+    border-radius: 10px; padding: 0 8px; font-size: 0.72rem; font-weight: 700;
+    margin-left: 4px; vertical-align: 2px;
+  }
+  .pending-tag {
+    display: inline-block; border: 1px solid #b8860b; color: #b8860b;
+    border-radius: 10px; padding: 0 8px; font-size: 0.72rem; font-weight: 700;
+    margin-left: 4px; vertical-align: 2px;
+  }
   .pub-btns { margin-top: 5px; }
   .pub-btns a {
     display: inline-block; font-size: 0.75rem; padding: 2px 10px;
@@ -168,7 +177,6 @@
         <p>I have delivered multiple deep learning projects end-to-end, from system architecture
            design to production deployment. Passionate about technology, self-motivated, and
            enjoy collaborating with cross-functional teams.</p>
-        <a class="btn-cv" href="resume.pdf" download>Download CV</a>
       </div>
     </div>
   </div>
@@ -255,43 +263,43 @@
     <div class="pub">
       <span class="pub-badge b-patent">专利</span>
       <div class="pub-body">
-        <div class="ptitle">三维房屋模型生成方法、装置及计算机可读存储介质</div>
-        <div class="pmeta">Pat. No. 2021106579677</div>
+        <div class="ptitle">三维房屋模型生成方法、装置及计算机可读存储介质 <span class="granted-tag">已授权</span></div>
+        <div class="pmeta">Pat. No. 2021106579677 · 授权公告 2022-02-22 · CN113379895B</div>
       </div>
     </div>
     <div class="pub">
       <span class="pub-badge b-patent">专利</span>
       <div class="pub-body">
-        <div class="ptitle">语义分割方法、语义分割模型的训练方法、装置及设备</div>
-        <div class="pmeta">Pat. No. 2022103865614</div>
+        <div class="ptitle">语义分割方法、语义分割模型的训练方法、装置及设备 <span class="inventor-tag">第一发明人</span> <span class="granted-tag">已授权</span></div>
+        <div class="pmeta">Meituan (北京三快在线科技有限公司) · Pat. No. 2022103865614 · 授权公告 2025-05-30 · CN114820633B</div>
       </div>
     </div>
     <div class="pub">
       <span class="pub-badge b-patent">专利</span>
       <div class="pub-body">
-        <div class="ptitle">一种基于多平面图像学习视角合成的基线扩展实现方法</div>
-        <div class="pmeta">Pat. No. 2020111057545</div>
+        <div class="ptitle">一种基于多平面图像学习视角合成的基线扩展实现方法 <span class="granted-tag">已授权</span></div>
+        <div class="pmeta">Pat. No. 2020111057545 · 授权公告 2024-06-21 · CN112233165B</div>
       </div>
     </div>
     <div class="pub">
       <span class="pub-badge b-patent">专利</span>
       <div class="pub-body">
-        <div class="ptitle">样本数据预处理方法、装置及计算机可读存储介质</div>
-        <div class="pmeta">Pat. No. 2021106509710</div>
+        <div class="ptitle">样本数据预处理方法、装置及计算机可读存储介质 <span class="granted-tag">已授权</span></div>
+        <div class="pmeta">Pat. No. 2021106509710 · 授权公告 2025-07-18 · CN113408600B</div>
       </div>
     </div>
     <div class="pub">
       <span class="pub-badge b-patent">专利</span>
       <div class="pub-body">
-        <div class="ptitle">一种基于非对称双流网络架构的 RGB-D 显著性检测方法</div>
-        <div class="pmeta">Pat. No. 2021106527102</div>
+        <div class="ptitle">一种基于非对称双流网络架构的 RGB-D 显著性检测方法 <span class="pending-tag">已公开 · 未授权</span></div>
+        <div class="pmeta">Pat. No. 2021106527102 · 公开日 2021-09-14 · CN113393434A</div>
       </div>
     </div>
     <div class="pub">
       <span class="pub-badge b-patent">专利</span>
       <div class="pub-body">
-        <div class="ptitle">姿态模型的训练方法、点云配准方法、设备及存储介质</div>
-        <div class="pmeta">Pat. No. 2023111403202</div>
+        <div class="ptitle">姿态模型的训练方法、点云配准方法、设备及存储介质 <span class="inventor-tag">第一发明人</span> <span class="granted-tag">已授权</span></div>
+        <div class="pmeta">Meituan (北京三快在线科技有限公司) · Pat. No. 2023111403202 · 授权公告 2025-06-24 · CN117197201B</div>
       </div>
     </div>
   </section>
