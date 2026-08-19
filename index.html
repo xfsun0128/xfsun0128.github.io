@@ -3,261 +3,337 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Xiaofei Sun (孙小飞) — AI/ML Engineer</title>
-<meta name="description" content="Personal homepage of Xiaofei Sun, AI/ML algorithm engineer specializing in multimodal large models, computer vision, and model compression.">
+<title>Xiaofei Sun (孙小飞)</title>
+<meta name="description" content="Personal homepage of Xiaofei Sun — AI/ML algorithm engineer specializing in multimodal large models, computer vision and model compression.">
 <style>
+  /* ============ al-folio 风格 ============ */
   :root {
-    --accent: #0366d6;
-    --text: #24292f;
-    --muted: #57606a;
-    --line: #d0d7de;
-    --bg: #ffffff;
-    --code-bg: #f6f8fa;
+    --text: #333;
+    --muted: #888;
+    --link: #1772d0;
+    --link-hover: #f09228;
+    --border: #e8e8e8;
+    --bg: #fff;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-                 "Microsoft YaHei", Roboto, Helvetica, Arial, sans-serif;
-    color: var(--text);
-    background: var(--bg);
-    line-height: 1.65;
+    font-family: "Lato", "Segoe UI", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    color: var(--text); background: var(--bg); line-height: 1.6;
   }
-  .container { max-width: 860px; margin: 0 auto; padding: 40px 24px 60px; }
+  a { color: var(--link); text-decoration: none; transition: color .15s; }
+  a:hover { color: var(--link-hover); }
 
-  /* ---------- header ---------- */
-  header { text-align: center; padding: 30px 0 26px; }
-  .avatar {
-    width: 110px; height: 110px; border-radius: 50%;
-    background: linear-gradient(135deg, #0366d6, #6f42c1);
-    color: #fff; font-size: 44px; font-weight: 700;
-    display: inline-flex; align-items: center; justify-content: center;
-    margin-bottom: 16px; user-select: none;
+  /* ---------- navbar ---------- */
+  .navbar {
+    border-bottom: 1px solid var(--border); background: var(--bg);
+    position: sticky; top: 0; z-index: 100;
   }
-  h1 { font-size: 34px; letter-spacing: 1px; }
-  .subtitle { color: var(--muted); margin-top: 6px; font-size: 16px; }
-  .contact { margin-top: 14px; font-size: 15px; color: var(--muted); }
-  .contact a { color: var(--accent); text-decoration: none; }
-  .contact a:hover { text-decoration: underline; }
-  .contact .sep { margin: 0 8px; color: var(--line); }
-  .actions { margin-top: 20px; }
-  .btn {
-    display: inline-block; padding: 9px 22px; border-radius: 6px;
-    font-size: 14px; font-weight: 600; text-decoration: none;
-    border: 1px solid rgba(3,102,214,0.35); transition: all .15s;
+  .navbar-inner {
+    max-width: 1100px; margin: 0 auto; padding: 12px 24px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
   }
-  .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .btn-primary:hover { background: #0256b9; }
-  .btn-outline { color: var(--accent); margin-left: 10px; }
-  .btn-outline:hover { background: rgba(3,102,214,0.06); }
+  .navbar .logo { font-size: 1.25rem; font-weight: 700; color: var(--text); }
+  .navbar .logo:hover { color: var(--link); }
+  .navbar nav a { margin-left: 18px; font-size: 0.95rem; color: var(--text); }
+  .navbar nav a:hover { color: var(--link); }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 28px 24px 60px; }
+
+  /* ---------- profile ---------- */
+  .profile-row { display: flex; gap: 36px; flex-wrap: wrap; align-items: flex-start; padding: 10px 0 20px; }
+  .profile-photo { flex: 0 0 200px; }
+  .avatar-photo {
+    width: 200px; height: 200px; object-fit: cover;
+    border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,.15);
+  }
+  .profile-text { flex: 1; min-width: 280px; }
+  .profile-text h1 { font-size: 2.1rem; font-weight: 700; margin: 4px 0 2px; }
+  .profile-text .role { color: var(--muted); font-size: 1.02rem; margin-bottom: 10px; }
+  .contact-links { margin-bottom: 14px; font-size: 0.95rem; }
+  .contact-links a { margin-right: 14px; white-space: nowrap; }
+  .bio p { margin-bottom: 10px; font-size: 0.95rem; text-align: justify; }
+  .bio .interests { font-style: italic; }
+  .btn-cv {
+    display: inline-block; margin-top: 6px; padding: 7px 18px;
+    border: 1px solid var(--link); border-radius: 4px;
+    font-size: 0.9rem; font-weight: 600; color: var(--link);
+  }
+  .btn-cv:hover { background: var(--link); color: #fff; }
 
   /* ---------- sections ---------- */
-  section { margin-top: 38px; }
-  h2 {
-    font-size: 20px; color: var(--accent);
-    padding-bottom: 8px; border-bottom: 2px solid var(--line);
-    margin-bottom: 18px; display: flex; align-items: center; gap: 8px;
+  section { margin-top: 34px; }
+  .sec-title {
+    font-size: 0.85rem; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #999; margin-bottom: 14px;
   }
-  .entry { margin-bottom: 16px; }
-  .entry-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 12px; }
-  .entry-title { font-weight: 600; font-size: 15.5px; }
-  .entry-org { color: var(--accent); }
-  .entry-date { color: var(--muted); font-size: 13.5px; white-space: nowrap; }
-  .entry-sub { font-style: italic; color: var(--muted); font-size: 13.5px; margin-top: 1px; }
-  ul { padding-left: 20px; margin-top: 6px; }
-  li { margin-bottom: 4px; font-size: 14.5px; }
-  li b { font-weight: 600; }
-  .skills-tags { margin-top: 6px; }
-  .tag {
-    display: inline-block; background: var(--code-bg); color: var(--text);
-    border: 1px solid var(--line); border-radius: 14px;
-    padding: 2px 12px; margin: 3px 4px 3px 0; font-size: 13px;
+
+  /* news */
+  .news-list { list-style: none; }
+  .news-list li { margin-bottom: 8px; font-size: 0.93rem; }
+  .news-list .date { font-weight: 700; margin-right: 10px; color: #555; }
+
+  /* publications */
+  .pub { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .pub-badge {
+    flex: 0 0 auto; min-width: 86px; text-align: center;
+    color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: .5px;
+    padding: 4px 8px; border-radius: 4px; margin-top: 3px;
   }
-  .paper { margin-bottom: 8px; font-size: 14.5px; }
-  .paper .title { font-weight: 600; }
-  .paper .venue { color: var(--accent); font-style: italic; }
-  .patent { font-size: 14.5px; margin-bottom: 6px; }
-  .patent .no { color: var(--muted); font-size: 13px; }
+  .b-eccv { background: #2e8b57; }
+  .b-arxiv { background: #666; }
+  .b-cvpr { background: #b509ac; }
+  .b-patent { background: #b8860b; }
+  .pub-body .ptitle { font-weight: 700; font-size: 0.98rem; }
+  .pub-body .pauthors { color: var(--muted); font-size: 0.88rem; margin-top: 2px; }
+  .pub-body .pvenue { color: var(--muted); font-size: 0.86rem; font-style: italic; }
+  .pub-body .pmeta { color: var(--muted); font-size: 0.86rem; margin-top: 2px; }
+  .pub-btns { margin-top: 5px; }
+  .pub-btns a {
+    display: inline-block; font-size: 0.75rem; padding: 2px 10px;
+    border: 1px solid #ccc; border-radius: 12px; color: #555; margin-right: 6px;
+  }
+  .pub-btns a:hover { border-color: var(--link); color: var(--link); }
+  .more-link { font-size: 0.9rem; }
+
+  /* experience / education */
+  .exp { margin-bottom: 18px; }
+  .exp-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 14px; }
+  .exp-title { font-weight: 700; font-size: 0.98rem; }
+  .exp-title .org { color: var(--link); }
+  .exp-date { color: var(--muted); font-size: 0.86rem; white-space: nowrap; }
+  .exp-role { color: var(--muted); font-style: italic; font-size: 0.9rem; margin: 1px 0 6px; }
+  .exp ul { padding-left: 22px; }
+  .exp li { font-size: 0.92rem; margin-bottom: 3px; }
+  .exp li b { font-weight: 700; }
+  .exp ul ul { margin-top: 2px; }
 
   footer {
-    margin-top: 50px; text-align: center; color: var(--muted);
-    font-size: 13px; border-top: 1px solid var(--line); padding-top: 18px;
+    margin-top: 46px; border-top: 1px solid var(--border); padding-top: 16px;
+    text-align: center; color: var(--muted); font-size: 0.82rem;
   }
-  @media (max-width: 600px) {
-    h1 { font-size: 27px; }
-    .entry-date { white-space: normal; }
+
+  @media (max-width: 640px) {
+    .profile-photo { flex-basis: 100%; }
+    .avatar-photo { width: 140px; height: 140px; }
   }
 </style>
 </head>
 <body>
-<div class="container">
 
-  <!-- ================= header ================= -->
-  <header>
-    <div class="avatar">孙</div>
-    <h1>Xiaofei Sun (孙小飞)</h1>
-    <div class="subtitle">AI/ML Algorithm Engineer · Multimodal LLMs · Computer Vision · Model Compression</div>
-    <div class="contact">
-      <a href="mailto:xfsun.cn@gmail.com">xfsun.cn@gmail.com</a>
-      <span class="sep">|</span>
-      <a href="tel:+8617801085712">+86 178-0108-5712</a>
-      <span class="sep">|</span>
-      <a href="https://scholar.google.com/citations?hl=zh-CN&user=hXLzlP4AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
-      <span class="sep">|</span>
-      <a href="https://github.com/xfsun0128" target="_blank" rel="noopener">GitHub</a>
-    </div>
-    <div class="actions">
-      <a class="btn btn-primary" href="resume.pdf" download>📄 Download CV (PDF)</a>
-      <a class="btn btn-outline" href="mailto:xfsun.cn@gmail.com">✉️ Contact Me</a>
-    </div>
-  </header>
+<!-- ================= navbar ================= -->
+<div class="navbar">
+  <div class="navbar-inner">
+    <a class="logo" href="#top">Xiaofei Sun<span style="color:var(--link)">.</span></a>
+    <nav>
+      <a href="#news">News</a>
+      <a href="#publications">Publications</a>
+      <a href="#patents">Patents</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+    </nav>
+  </div>
+</div>
 
-  <!-- ================= education ================= -->
-  <section>
-    <h2>🎓 Education</h2>
-    <div class="entry">
-      <div class="entry-head">
-        <span class="entry-title">M.S. Software Engineering</span>
-        <span class="entry-date">2018.09 – 2020.07</span>
-      </div>
-      <div class="entry-org">Dalian University of Technology</div>
+<div class="container" id="top">
+
+  <!-- ================= profile ================= -->
+  <div class="profile-row">
+    <div class="profile-photo">
+      <img class="avatar-photo" src="photo.jpg" alt="Xiaofei Sun">
     </div>
-    <div class="entry">
-      <div class="entry-head">
-        <span class="entry-title">B.E. Civil Engineering + Software Engineering (Top 1 in major)</span>
-        <span class="entry-date">2013.09 – 2018.07</span>
+    <div class="profile-text">
+      <h1>Xiaofei Sun (孙小飞)</h1>
+      <div class="role">AI/ML Algorithm Engineer · Multimodal LLMs · Computer Vision · Model Compression</div>
+      <div class="contact-links">
+        <a href="mailto:xfsun.cn@gmail.com">Email</a>
+        <a href="https://scholar.google.com/citations?hl=zh-CN&user=hXLzlP4AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://github.com/xfsun0128" target="_blank" rel="noopener">GitHub</a>
+        <a href="tel:+8617801085712">+86 178-0108-5712</a>
       </div>
-      <div class="entry-org">Dalian Jiaotong University</div>
+      <div class="bio">
+        <p>I am an AI/ML algorithm engineer at Meituan, currently working in the M17 (Large Model)
+           department on multimodal data construction, model fine-tuning (SFT) and LLM application
+           scenarios. Previously, I worked in the Vision Intelligence department on multimodal
+           large models (MobileVLM), drone-based perception systems, and autonomous-driving point
+           cloud algorithms, and at Beike on indoor 3D scene understanding.</p>
+        <p class="interests">My research interests focus on Multimodal Large Models, Diffusion Models
+           (DDPM/DDIM/StableDiffusion/ControlNet), AIGC, and 3D Vision — with a strong focus on
+           efficient model design, knowledge distillation, quantization and deployment on
+           resource-constrained devices.</p>
+        <p>I have delivered multiple deep learning projects end-to-end, from system architecture
+           design to production deployment. Passionate about technology, self-motivated, and
+           enjoy collaborating with cross-functional teams.</p>
+        <a class="btn-cv" href="resume.pdf" download>Download CV</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= news ================= -->
+  <section id="news">
+    <div class="sec-title">News</div>
+    <ul class="news-list">
+      <li><span class="date">Aug, 2026</span>Personal website launched. 🎉 (Add your own updates here, e.g., paper acceptances, talks, job changes…)</li>
+    </ul>
+  </section>
+
+  <!-- ================= publications ================= -->
+  <section id="publications">
+    <div class="sec-title">Selected Publications
+      <a class="more-link" href="https://scholar.google.com/citations?hl=zh-CN&user=hXLzlP4AAAAJ" target="_blank" rel="noopener">more publications →</a>
+    </div>
+
+    <div class="pub">
+      <span class="pub-badge b-eccv">ECCV 2020</span>
+      <div class="pub-body">
+        <div class="ptitle">Asymmetric Two-Stream Architecture for Accurate RGB-D Saliency Detection</div>
+        <div class="pauthors">Xiaofei Sun</div>
+        <div class="pvenue">European Conference on Computer Vision, 2020</div>
+        <div class="pub-btns"><a href="https://scholar.google.com/citations?hl=zh-CN&user=hXLzlP4AAAAJ" target="_blank" rel="noopener">PDF</a></div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-badge b-arxiv">arXiv</span>
+      <div class="pub-body">
+        <div class="ptitle">MobileVLM V2: Faster and Stronger Baseline for Vision Language Model</div>
+        <div class="pauthors">Xiaofei Sun (MobileVLM Team)</div>
+        <div class="pvenue">arXiv preprint</div>
+        <div class="pub-btns"><a href="https://scholar.google.com/citations?hl=zh-CN&user=hXLzlP4AAAAJ" target="_blank" rel="noopener">PDF</a></div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-badge b-cvpr">CVPR 2025</span>
+      <div class="pub-body">
+        <div class="ptitle">KG4D: Keypoint-Guided 4D Gaussian Splatting with Decoupled Spatio-temporal Flow Refinement</div>
+        <div class="pauthors">Xiaofei Sun</div>
+        <div class="pmeta">Submitted to CVPR 2025</div>
+      </div>
     </div>
   </section>
 
-  <!-- ================= experience & skills ================= -->
-  <section>
-    <h2>💡 Experience &amp; Skills</h2>
-    <div class="entry">
-      <div class="entry-title" style="margin-bottom:6px;">Experience</div>
-      Led and delivered multiple deep learning projects (semantic segmentation, object detection,
-      depth estimation) covering the full lifecycle from system architecture design to model
-      development, quantization, deployment and production. Rich hands-on experience in model
-      structure design and knowledge distillation, familiar with quantization and deployment
-      pipelines, including deploying efficient models on resource-constrained devices.
-    </div>
-    <div class="entry">
-      <div class="entry-title" style="margin-bottom:6px;">Skills</div>
-      Proficient in Python / C++, PyTorch deep learning framework. Familiar with CNN / Transformer
-      architectures, DDPM / DDIM / StableDiffusion / ControlNet and latest AIGC advances; familiar
-      with the evolution of multimodal large models: CLIP, Flamingo, BLIP/BLIP2, InstructBLIP,
-      LLaVA, InternVL, DeepSeek-VL, Qwen-VL, etc.
-      <div class="skills-tags">
-        <span class="tag">Python</span><span class="tag">C++</span><span class="tag">PyTorch</span>
-        <span class="tag">CNN / Transformer</span><span class="tag">Diffusion Models</span>
-        <span class="tag">AIGC</span><span class="tag">Multimodal LLMs</span>
-        <span class="tag">Model Distillation</span><span class="tag">Quantization</span>
-        <span class="tag">Model Deployment</span><span class="tag">3D Vision</span>
-        <span class="tag">Point Cloud</span>
+  <!-- ================= patents ================= -->
+  <section id="patents">
+    <div class="sec-title">Patents</div>
+    <div class="pub">
+      <span class="pub-badge b-patent">专利</span>
+      <div class="pub-body">
+        <div class="ptitle">三维房屋模型生成方法、装置及计算机可读存储介质</div>
+        <div class="pmeta">Pat. No. 2021106579677</div>
       </div>
     </div>
-    <div class="entry">
-      <div class="entry-title" style="margin-bottom:6px;">Self-assessment</div>
-      Passionate about technology, strong self-motivation, fast learning ability and
-      team-collaboration awareness.
+    <div class="pub">
+      <span class="pub-badge b-patent">专利</span>
+      <div class="pub-body">
+        <div class="ptitle">语义分割方法、语义分割模型的训练方法、装置及设备</div>
+        <div class="pmeta">Pat. No. 2022103865614</div>
+      </div>
+    </div>
+    <div class="pub">
+      <span class="pub-badge b-patent">专利</span>
+      <div class="pub-body">
+        <div class="ptitle">一种基于多平面图像学习视角合成的基线扩展实现方法</div>
+        <div class="pmeta">Pat. No. 2020111057545</div>
+      </div>
+    </div>
+    <div class="pub">
+      <span class="pub-badge b-patent">专利</span>
+      <div class="pub-body">
+        <div class="ptitle">样本数据预处理方法、装置及计算机可读存储介质</div>
+        <div class="pmeta">Pat. No. 2021106509710</div>
+      </div>
+    </div>
+    <div class="pub">
+      <span class="pub-badge b-patent">专利</span>
+      <div class="pub-body">
+        <div class="ptitle">一种基于非对称双流网络架构的 RGB-D 显著性检测方法</div>
+        <div class="pmeta">Pat. No. 2021106527102</div>
+      </div>
+    </div>
+    <div class="pub">
+      <span class="pub-badge b-patent">专利</span>
+      <div class="pub-body">
+        <div class="ptitle">姿态模型的训练方法、点云配准方法、设备及存储介质</div>
+        <div class="pmeta">Pat. No. 2023111403202</div>
+      </div>
     </div>
   </section>
 
-  <!-- ================= work experience ================= -->
-  <section>
-    <h2>💼 Work Experience</h2>
+  <!-- ================= experience ================= -->
+  <section id="experience">
+    <div class="sec-title">Experience</div>
 
-    <div class="entry">
-      <div class="entry-head">
-        <span class="entry-title">Meituan — M17 (Large Model Dept.)</span>
-        <span class="entry-date">2024.06 – Present</span>
+    <div class="exp">
+      <div class="exp-head">
+        <span class="exp-title"><span class="org">Meituan</span> — M17 (Large Model Dept.)</span>
+        <span class="exp-date">2024.06 – Present</span>
       </div>
-      <div class="entry-sub">Strategy Algorithm Engineer</div>
+      <div class="exp-role">Strategy Algorithm Engineer</div>
       <ul>
-        <li>Responsible for high-quality multimodal dataset construction and model fine-tuning (SFT),
-            including multimodal data mixture weighting (DoReMi), diversity analysis, and model
-            hallucination mitigation (LRV).</li>
-        <li>LLM application scenarios: Meituan Pharmacy — medicine abuse governance; Meituan
-            Takeout — generative search.</li>
+        <li>Responsible for high-quality multimodal dataset construction and model fine-tuning (SFT), including multimodal data mixture weighting (DoReMi), diversity analysis and model hallucination mitigation (LRV).</li>
+        <li>LLM application scenarios: Meituan Pharmacy — medicine abuse governance; Meituan Takeout — generative search.</li>
       </ul>
     </div>
 
-    <div class="entry">
-      <div class="entry-head">
-        <span class="entry-title">Meituan — Vision Intelligence Dept.</span>
-        <span class="entry-date">2021.08 – 2024.05</span>
+    <div class="exp">
+      <div class="exp-head">
+        <span class="exp-title"><span class="org">Meituan</span> — Vision Intelligence Dept.</span>
+        <span class="exp-date">2021.08 – 2024.05</span>
       </div>
-      <div class="entry-sub">Strategy Algorithm Engineer</div>
+      <div class="exp-role">Strategy Algorithm Engineer</div>
       <ul>
-        <li><b>(1) Multimodal LLM capability building</b>: contributed to the MobileVLM project —
-            data construction and fine-tuning to improve dialogue, OCR, scene understanding and
-            position understanding capabilities.</li>
-        <li><b>(2) Lead of cross-dept collaboration with Meituan's UAV business</b>:
+        <li><b>(1) Multimodal LLM capability building</b>: contributed to the MobileVLM project — data construction and fine-tuning to improve dialogue, OCR, scene understanding and position understanding.</li>
+        <li><b>(2) Lead of cross-dept collaboration with the UAV business</b>:
           <ul>
-            <li>Delivered multiple phases of HD-map semantic segmentation, aerial down-view
-                segmentation and depth estimation: model performance improvement, optimization
-                acceleration and knowledge distillation; several projects achieved significant
-                gains with server- and mobile-side deployment.</li>
-            <li>Built the offline UAV system: offline LLM, data mining, automated annotation,
-                model distillation, efficient inference and model compression.</li>
+            <li>Delivered multiple phases of HD-map semantic segmentation, aerial down-view segmentation and depth estimation: model performance improvement, optimization acceleration and knowledge distillation; multiple projects achieved significant gains with server- and mobile-side deployment.</li>
+            <li>Built the offline UAV system: offline LLM, data mining, automated annotation, model distillation, efficient inference and model compression.</li>
           </ul>
         </li>
         <li><b>(3) Collaboration with the autonomous driving department</b>:
           <ul>
-            <li>Point cloud segmentation: optimized SPVNAS-based segmentation on autonomous
-                driving datasets, improving speed and accuracy.</li>
-            <li>Point cloud registration under changing scenes: designed a novel method using
-                proxy supervision from predicted dense depth and intensity maps, effectively
-                mitigating sparse point cloud effects and improving accuracy and efficiency.</li>
+            <li>Point cloud segmentation: optimized SPVNAS-based segmentation on autonomous driving datasets, improving speed and accuracy.</li>
+            <li>Point cloud registration under changing scenes: designed a novel method using proxy supervision from predicted dense depth and intensity maps, mitigating sparse point cloud effects and improving accuracy and efficiency.</li>
           </ul>
         </li>
-        <li><b>(4) SOTA semantic segmentation solution</b>: developed the MTCVZoo-Segmentation
-            codebase based on MMSegmentation, providing SOTA solutions and mature business
-            deployment pipelines (HRNet-OCRNet, DDRNet, SCTNet, etc.), covering model optimization,
-            distillation, quantization and deployment across multiple business scenarios.</li>
+        <li><b>(4) SOTA semantic segmentation solution</b>: developed the MTCVZoo-Segmentation codebase based on MMSegmentation (HRNet-OCRNet, DDRNet, SCTNet, etc.), covering model optimization, distillation, quantization and deployment across multiple business scenarios.</li>
       </ul>
     </div>
 
-    <div class="entry">
-      <div class="entry-head">
-        <span class="entry-title">Beike (KE Holdings) — Vision Business Dept.</span>
-        <span class="entry-date">2020.07 – 2021.07</span>
+    <div class="exp">
+      <div class="exp-head">
+        <span class="exp-title"><span class="org">Beike (KE Holdings)</span> — Vision Business Dept.</span>
+        <span class="exp-date">2020.07 – 2021.07</span>
       </div>
-      <div class="entry-sub">Computer Vision Algorithm Engineer</div>
+      <div class="exp-role">Computer Vision Algorithm Engineer</div>
       <ul>
-        <li>Created an indoor semantic scene parsing benchmark: 400K RGB-D panoramic images plus
-            20K real property units with segmentation and detection annotations, serving as a
-            baseline for panorama- and point-cloud-based segmentation research.</li>
-        <li>Developed an enhanced RandLA-Net via cascaded object-level context representations,
-            achieving performance gains on S3DIS and SemanticKITTI benchmarks and completing
-            project deployment.</li>
-        <li>Improved plane-based 3D reconstruction using 2D/3D point cloud segmentation results,
-            achieving high-fidelity 3D house reconstruction; filed 2 patents.</li>
+        <li>Created an indoor semantic scene parsing benchmark: 400K RGB-D panoramic images plus 20K real property units with segmentation and detection annotations.</li>
+        <li>Developed an enhanced RandLA-Net via cascaded object-level context representations, achieving performance gains on S3DIS and SemanticKITTI benchmarks and completing project deployment.</li>
+        <li>Improved plane-based 3D reconstruction using 2D/3D point cloud segmentation results, achieving high-fidelity 3D house reconstruction; filed 2 patents.</li>
       </ul>
     </div>
   </section>
 
-  <!-- ================= publications ================= -->
-  <section>
-    <h2>📄 Publications</h2>
-    <div class="paper"><span class="title">Asymmetric Two-Stream Architecture for Accurate RGB-D Saliency Detection</span>, <span class="venue">ECCV 2020</span></div>
-    <div class="paper"><span class="title">MobileVLM V2: Faster and Stronger Baseline for Vision Language Model</span>, <span class="venue">arXiv</span></div>
-    <div class="paper"><span class="title">KG4D: Keypoint-Guided 4D Gaussian Splatting with Decoupled Spatio-temporal Flow Refinement</span>, <span class="venue">submitted to CVPR 2025</span></div>
-  </section>
-
-  <!-- ================= patents ================= -->
-  <section>
-    <h2>📜 Patents</h2>
-    <div class="patent">三维房屋模型生成方法、装置及计算机可读存储介质 <span class="no">(Pat. No. 2021106579677)</span></div>
-    <div class="patent">语义分割方法、语义分割模型的训练方法、装置及设备 <span class="no">(Pat. No. 2022103865614)</span></div>
-    <div class="patent">一种基于多平面图像学习视角合成的基线扩展实现方法 <span class="no">(Pat. No. 2020111057545)</span></div>
-    <div class="patent">样本数据预处理方法、装置及计算机可读存储介质 <span class="no">(Pat. No. 2021106509710)</span></div>
-    <div class="patent">一种基于非对称双流网络架构的 RGB-D 显著性检测方法 <span class="no">(Pat. No. 2021106527102)</span></div>
-    <div class="patent">姿态模型的训练方法、点云配准方法、设备及存储介质 <span class="no">(Pat. No. 2023111403202)</span></div>
+  <!-- ================= education ================= -->
+  <section id="education">
+    <div class="sec-title">Education</div>
+    <div class="exp">
+      <div class="exp-head">
+        <span class="exp-title">M.S. Software Engineering</span>
+        <span class="exp-date">2018.09 – 2020.07</span>
+      </div>
+      <div class="exp-role">Dalian University of Technology</div>
+    </div>
+    <div class="exp">
+      <div class="exp-head">
+        <span class="exp-title">B.E. Civil Engineering + Software Engineering (Top 1 in major)</span>
+        <span class="exp-date">2013.09 – 2018.07</span>
+      </div>
+      <div class="exp-role">Dalian Jiaotong University</div>
+    </div>
   </section>
 
   <footer>
-    © 2026 Xiaofei Sun · Hosted on <a href="https://pages.github.com/" style="color:var(--accent);text-decoration:none;">GitHub Pages</a>
+    © Copyright 2026 Xiaofei Sun. Hosted by GitHub Pages. Last updated: Aug 2026.
   </footer>
 
 </div>
